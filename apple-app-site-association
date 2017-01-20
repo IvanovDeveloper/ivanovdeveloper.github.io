@@ -3,7 +3,7 @@
     "apps": [],
     "details": [
       {
-        "appID": "47ER6JWHZU.com.krenvpravo.deeplinkapp",
+        "appID": "com.krenvpravo.deeplinkapp",
         "paths": ["*"]
       }
     ]
