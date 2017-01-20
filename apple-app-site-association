@@ -4,9 +4,7 @@
     "details": [
       {
         "appID": "47ER6JWHZU.com.krenvpravo.deeplinkapp",
-        "paths": [
-          "*"
-        ]
+        "paths": ["*"]
       }
     ]
   }
