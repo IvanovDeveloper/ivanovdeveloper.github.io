@@ -1,11 +1,1 @@
-{
-    "applinks": {
-        "apps": [],
-        "details": [
-            {
-                "appID": "47ER6JWHZU.com.krenvpravo.deeplinkappS",
-                "paths": [ "*" ]
-            }
-        ]
-    }
-}
+{"applinks":{"apps":[],"details":[{"appID":"47ER6JWHZU.com.krenvpravo.deeplinkappS","paths":["*"]}]}}
