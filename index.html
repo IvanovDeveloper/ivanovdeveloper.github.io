@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <body>
-    <a href="deepLink://buy">Launch SmartAppBanner app</a><br/>
-    <a href="deepLink://">Launch SmartAppBanner app 2</a><br/>
-    <script type="text/javascript">
+    <body>
+        <script type="text/javascript">
             window.onload = function() {
                 // Deep link to your app goes here
                 document.getElementById("l").src = "deepLink://";
 
                 setTimeout(function() {
                     // Link to the App Store should go here -- only fires if deep link fails                
-                    window.location = "https://itunes.apple.com/us/app/swelp-focus-on-the-core/id1148572155?l=ru&ls=1&mt=8";
-                      //"https://itunes.apple.com/us/app/my.app/id123456789?ls=1&mt=8";
+                  window.location = "https://itunes.apple.com/us/app/swelp-focus-on-the-core/id1148572155?l=ru&ls=1&mt=8";
                 }, 500);
             };
         </script>
-  </body>
+        <iframe id="l" width="1" height="1" style="visibility:hidden"></iframe>
+    </body>
 </html>
