@@ -3,12 +3,18 @@
     <body>
         <script type="text/javascript">
             setTimeout(function () {
-                //This link will be changed later. If application not installed at device, this link for opening the app in appstore.
-                window.location = "https://itunes.apple.com/us/app/swelp-focus-on-the-core/id1148572155?l=ru&ls=1&mt=8"; 
+                // Если приложение не установленно выполняеться эта функция. Она перенаправляет в аппстор для скачивания необходимого приложения. 
+                // Ее необходимо будет реализовать позднее когда приложение будет выложено в апстор
+                // window.location = "[ссылка на приложение размещеного в апсторе]"; 
             }, 25);
-            //Link for product should be    "mainAndMe://products/[current product id]";
-            //Link for store should be      "mainAndMe://stores/[current store id]";
-            window.location = "mainAndMe://products/636";
+            // в приложении я создаю специальные линки и приложение будет реагировать только на линки правильного формата
+            // Для регистрации будет линка такого формата: "bubblez://completeRefistration/[confirmationToken]"
+            // Для восстановления пароля будет линка такого формата: "bubblez://resetPassword/[resetPasswordToken]"
+            
+            // Примеры:
+            window.location = "bubblez://completeRefistration/8jdgzkWGaFsoLyM9pmAY";
+            // или при восстановлении пароля
+            //window.location = "bubblez://resetPassword/4nhvmZFic6zL2ECxLzWX";
         </script>
         <iframe id="l" width=e"1" height="1" style="visibility:hidden"></iframe>
     </body>
