@@ -1,33 +1,96 @@
-<!DOCTYPE html>
 <html>
+    
+    <head>
+        
+        <meta name="viewport" content="width=device-width">
+            
+            <script id="bolt-track"
+                
+                type="text/javascript"
+                
+                src="https://connect-sandbox.bolt.com/track.js"
+                
+                data-publishable-key="u4CM94MLQ-ot.vMCZmn6V3iAs.7e4df2f66b57737b5fb94c0bf5fe667d115af11558b81f34c0f300a92116abcf"></script>
+            
+            <script id="bolt-connect"
+                
+                type="text/javascript"
+                
+                src="https://connect-sandbox.bolt.com/connect.js"
+                
+                data-publishable-key="u4CM94MLQ-ot.vMCZmn6V3iAs.7e4df2f66b57737b5fb94c0bf5fe667d115af11558b81f34c0f300a92116abcf"></script>
+            
+    </head>
+    
     <body>
-        <script type="text/javascript">
-                        
-            setTimeout(function () {
-                // Если приложение не установленно выполняеться эта функция. Она перенаправляет в аппстор для скачивания необходимого приложения. 
-                // Ее необходимо будет реализовать позднее когда приложение будет выложено в апстор
-                window.location = "https://itunes.apple.com/us/app/mybubblz/id1242806355?l=ru&ls=1&mt=8";//"[ссылка на приложение размещеного в апсторе]"; 
-            }, 25);
-//             window.location = "bubblez://open_bubble?bubble_permalink=nkoDZdRN"
-//             window.location = "bubblez://open_media?media_id=9079"
-            window.location = "bubblez://open_media_from_bubble?media_id=21882&bubble_permalink=nCTToXvi"
+        
+        <div class="bolt-checkout-button">
             
-            
-            // в приложении я создаю специальные линки и приложение будет реагировать только на линки правильного формата
-            // Для регистрации будет линка такого формата: "bubblez://completeRefistration/[confirmationToken]"
-            // Для восстановления пароля будет линка такого формата: "bubblez://resetPassword/[resetPasswordToken]"
-            
-            // Примеры:
-            //http://localhost:3000/bubbles/D4BYxgza?new_member_token=dZEipVs9h6jZAzxTscJo&confirmation_token=yLavCzQJdte9FzZwWxkV
-//             window.location = "bubblez://openBubble/g4yxNyQH?new_member_token=FMZtwzYgJ8yUU-oWkdxT&confirmation_token=qEbBM24m81ZWSLRf8MWN";// dev 380665823616 
-            //window.location = "bubblez://openBubble/g4yxNyQH?new_member_token=aZa9H73DDvSEFXqZuZv9&confirmation_token=pEtKbVQJ1ebJ3Pc3ntJQ"; // dev novvember 6
-            //window.location = "bubblez://openBubble/D4BYxgza?new_member_token=x4S2JvAB1eWvABhkvoKC";
-            //window.location = "bubblez://openBubble/5KVApmKP?new_member_token=np8kbspBwuJrR1sd7XJ5";
-            //window.location = "bubblez://openBubble/D4BYxgza?new_member_token=ixVdiGxq1oEyugFe6tVg";
-            //window.location = "bubblez://completeRefistration/DzVxD53sxrpQzcHwATxM";
-            // или при восстановлении пароля
-            //window.location = "bubblez://resetPassword/XQfRti-W5nBtZBPy_osP";
-        </script>
-        <iframe id="l" width=e"1" height="1" style="visibility:hidden"></iframe>
+        </div>
+        
     </body>
+    
+    <script>
+        var cart = {
+            "orderToken": "9c719e02172768e7094a4901c943192923d8620a763daab4beb965aaab661356",
+            "authcapture": true
+        };
+    var hints = {
+        "prefill": {
+            "firstName": "Bolt",
+            "lastName": "User",
+            "email": "email@example.com",
+            "phone": "1112223333",
+            "addressLine1": "1235 Howard St",
+            "addressLine2": "Unit D",
+            "city": "San Francisco",
+            "state": "California",
+            "zip": "94103",
+            "country": "US" // ISO Alpha-2 format expected
+        }
+    };
+    var callbacks = {
+        check: function() {
+            // This function is called just before the checkout form loads.
+            // This is a hook to determine whether Bolt can actually proceed
+            // with checkout at this point. This function MUST return a boolean.
+            return true;
+        },
+        
+        onCheckoutStart: function() {
+            // This function is called after the checkout form is presented to the user.
+            alert("HELLO")
+        },
+        
+        onShippingDetailsComplete: function() {
+            // This function is called when the user proceeds to the shipping options page.
+            // This is applicable only to multi-step checkout.
+        },
+        
+        onShippingOptionsComplete: function() {
+            // This function is called when the user proceeds to the payment details page.
+            // This is applicable only to multi-step checkout.
+        },
+        
+        onPaymentSubmit: function() {
+            // This function is called after the user clicks the pay button.
+        },
+        
+        success: function(transaction, callback) {
+            // This function is called when the Bolt checkout transaction is successful.
+            
+            // ... Add your code here ...
+            
+            // **IMPORTANT** callback must be executed at the end of this function if `success`
+            // is defined.
+            callback();
+        },
+        
+        close: function() {
+            // This function is called when the Bolt checkout modal is closed.
+        }
+    };
+    BoltCheckout.configure(cart, hints, callbacks);
+        </script>
+    
 </html>
